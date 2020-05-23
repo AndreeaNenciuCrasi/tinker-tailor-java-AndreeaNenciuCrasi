@@ -12,17 +12,20 @@ class TinkerTailor {
         this.k = k;
     }
 
+
     public List execute() {
         List<Integer> outcome = new ArrayList<>();
+        List<Integer> initial = new ArrayList<>();
 
-        outcome.add(3);
-        outcome.add(1);
-        outcome.add(5);
-        outcome.add(2);
-        outcome.add(4);
+        int index = 0;
+        for (int i = 0; i < this.n; i++) {
+            initial.add(i + 1);
+        }
 
-        // Works for n = 5 and k = 3
-        // Well, you should come up with a more general algorithm :)
+        while(initial.size() > 0){
+            index = (index +k -1) % initial.size();
+            outcome.add(initial.remove(index));
+        }
 
         return outcome;
     }
